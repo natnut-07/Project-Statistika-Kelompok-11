@@ -4,7 +4,7 @@ import time
 import os
 from datetime import datetime
 
-TOKEN = "INPUT_YOUR_TOKEN_HERE"
+TOKEN =
 HEADERS = {"Authorization": f"token {TOKEN}", "Accept": "application/vnd.github.v3+json"}
 REPO = "pandas-dev/pandas"
 
