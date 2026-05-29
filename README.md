@@ -1,7 +1,12 @@
 # Project-Statistika-Kelompok-11
 
+<<<<<<< HEAD
 > Audit statistik terhadap repository open-source `pandas` 
 > dengan menggunakan Konsep Statistika dan Probabilitas.
+=======
+> **Audit Statistik Komprehensif Terhadap Stabilitas dan Efisiensi Open-Source Software**
+> *Proyek Mata Kuliah Statistika dan Probabilitas (STI 2025)*
+>>>>>>> 7002209 (Fixing code)
 
 ## 📝 Latar Belakang
 Pandas adalah library manipulasi data paling populer di ekosistem Python. Dengan ribuan kontributor, menjaga kualitas kode adalah tantangan besar. Proyek ini bertujuan untuk melakukan audit kesehatan repositori menggunakan pendekatan statistika formal untuk mengukur efisiensi kerja developer dan stabilitas sistem.
@@ -29,6 +34,7 @@ Pandas adalah library manipulasi data paling populer di ekosistem Python. Dengan
 ```text
 Project-Statistika-Kelompok-11/
 ├── data/
+<<<<<<< HEAD
 │   ├── raw/           # Data mentah (.csv) dari GitHub API Pandas
 │   └── clean/         # Data siap olah (dataset_final.csv)
 ├── notebooks/
@@ -40,6 +46,19 @@ Project-Statistika-Kelompok-11/
 ├── src/               # Script modular (.py)
 ├── README.md          # Dokumentasi Proyek
 └── requirements.txt   # Library: pandas, scipy, matplotlib, seaborn
+=======
+│   ├── raw/           # Data mentah hasil scraping (Issues & PRs)
+│   └── clean/         # Dataset final setelah cleaning & feature engineering
+├── notebooks/
+│   ├── 01_eda.ipynb   # Preprocessing & Visualisasi Dasar (Member A)
+│   ├── 02_est.ipynb   # Estimasi Parameter MLE (Member B)
+│   ├── 03_bayes.ipynb # Analisis Bayesian & CI (Member C)
+│   ├── 04_test.ipynb  # Uji Hipotesis (Member D)
+│   └── 05_sim.ipynb   # Simulasi Monte Carlo (Member E)
+├── src/
+│   └── fetch_pandas.py # Script automation penarik data
+└── README.md
+>>>>>>> 7002209 (Fixing code)
 ```
 ## 🚀 Cara Menjalankan
 
@@ -47,7 +66,11 @@ Project-Statistika-Kelompok-11/
 # 1. Clone repositori ini.
 
 # 2. Install library
+<<<<<<< HEAD
 pip install -r requirements.txt.
+=======
+pip install pandas numpy scipy matplotlib seaborn requests
+>>>>>>> 7002209 (Fixing code)
 
 # 3. Jalankan notebook secara berurutan dari 01 sampai 05.
 ```
@@ -60,13 +83,29 @@ Masih dalam pengerjaan
 * **Repositori Target:** [pandas-dev/pandas](https://github.com/pandas-dev/pandas)
 * **Endpoint API:** GitHub REST API v3 (`/repos/{owner}/{repo}/issues`)
 * **Periode Data:** Data diambil hingga tanggal **28 Mei 2026**.
+<<<<<<< HEAD
 * **Volume Data:** ~1.000 record (terdiri dari Issues dan Pull Requests).
 * **Kriteria Pembersihan (Cleaning):** * Hanya menyertakan data dengan status `closed` untuk perhitungan durasi yang akurat.
     * Penghapusan pencilan (outliers) menggunakan metode **Interquartile Range (IQR)** pada kolom `duration_days`.
     * Konversi zona waktu ke UTC untuk standarisasi pengerjaan global.
+=======
+
+Data ditarik secara *real-time* melalui **GitHub REST API v3** dengan spesifikasi sebagai berikut:
+
+* **Closed Issues (n = 1.000):** Data murni kategori *issue* (non-PR) untuk analisis durasi pengerjaan.
+* **Merged Pull Requests (n = 500):** Data kontribusi kode yang sukses terintegrasi untuk analisis probabilitas merge.
+* **Metode Penarikan:** Menggunakan sistem *Time-based Cursor Pagination* (parameter `until`) untuk menghindari limitasi API pada dataset besar (Error 422).
+* **Lokasi Data:**
+    * Mentah: `data/raw/pandas_issues_raw.csv` & `data/raw/pandas_prs_raw.csv`
+    * Siap Olah: `data/clean/dataset_final.csv`
+>>>>>>> 7002209 (Fixing code)
 
 ---
 
 ## 📜 Lisensi & Penggunaan AI
 * Proyek ini dibuat untuk tujuan edukasi di **Universitas Negeri Jakarta**.
+<<<<<<< HEAD
 * Penggunaan AI (Gemini/ChatGPT) didokumentasikan secara transparan dalam file `AI_USAGE_LOG.md` sesuai dengan etika akademik STI 2025.
+=======
+* Penggunaan AI (Gemini/ChatGPT) didokumentasikan secara transparan dalam file `AI_USAGE_LOG.md` sesuai dengan etika akademik STI 2025.
+>>>>>>> 7002209 (Fixing code)
