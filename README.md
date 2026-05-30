@@ -28,8 +28,6 @@ Pandas adalah library manipulasi data paling populer di ekosistem Python. Dengan
 
 ## 📁 Struktur Repository
 
-## 📁 Struktur Repository
-
 ```text
 Project-Statistika-Kelompok-11/
 ├── README.md
