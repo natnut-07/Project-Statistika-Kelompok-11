@@ -1,12 +1,9 @@
 # Project-Statistika-Kelompok-11
 
-<<<<<<< HEAD
+
 > Audit statistik terhadap repository open-source `pandas` 
 > dengan menggunakan Konsep Statistika dan Probabilitas.
-=======
-> **Audit Statistik Komprehensif Terhadap Stabilitas dan Efisiensi Open-Source Software**
-> *Proyek Mata Kuliah Statistika dan Probabilitas (STI 2025)*
->>>>>>> 7002209 (Fixing code)
+
 
 ## 📝 Latar Belakang
 Pandas adalah library manipulasi data paling populer di ekosistem Python. Dengan ribuan kontributor, menjaga kualitas kode adalah tantangan besar. Proyek ini bertujuan untuk melakukan audit kesehatan repositori menggunakan pendekatan statistika formal untuk mengukur efisiensi kerja developer dan stabilitas sistem.
@@ -15,9 +12,9 @@ Pandas adalah library manipulasi data paling populer di ekosistem Python. Dengan
 
 | # | Pertanyaan | Tujuan | Teknik | Notebook |
 |---|-----------|-------|--------|---------|
-| **RQ1** | Berapa estimasi probabilitas sebuah Pull Request (PR) di repositori Pandas berhasil di-merge (diterima), dan seberapa tinggi tingkat ketidakpastian estimasi tersebut? | Menghitung tingkat penerimaan kontribusi di Pandas | MLE Bernoulli & Beta Distribution | `02` + `03` |
-| **RQ2** | Apakah laju kemunculan laporan bug (kind/bug) setiap minggunya mengalami perubahan signifikan setelah rilis versi stabil Pandas terbaru dibandingkan periode sebelumnya? | Menguji apakah update software menambah/mengurangi bug | MLE Poisson + Z-test | `02` + `04` |
-| **RQ3** | Berapa peluang sebuah issue di Pandas tetap terbuka (tidak terselesaikan) lebih dari 60 hari, dan bagaimana distribusinya jika disimulasikan secara komputasi? | Memprediksi peluang issue "macet" dalam jangka panjang | Monte Carlo Simulation | `05` |
+| **RQ1** | Berapa estimasi probabilitas sebuah issue bug (is_bug = 1) dapat diselesaikan dalam waktu ≤ 7 hari, dan seberapa tinggi tingkat ketidakpastian estimasi tersebut? | Mengukur peluang penyelesaian cepat untuk issue bug berdasarkan data historis Pandas | MLE Bernoulli, Beta Distribution, Bayesian Estimation | `02` + `03` |
+| **RQ2** | Berapa rata-rata jumlah issue bug yang diselesaikan setiap minggu pada repositori Pandas, dan apakah rata-rata tersebut berbeda secara signifikan dari nilai yang diasumsikan? | Menganalisis laju penyelesaian bug dan menguji signifikansi statistiknya | MLE Poisson, Confidence Interval, Z-Test | `02` + `04` |
+| **RQ3** | Berapa peluang sebuah issue membutuhkan waktu penyelesaian lebih dari 60 hari, dan bagaimana distribusi peluang tersebut jika disimulasikan secara komputasi? | Memprediksi kemungkinan terjadinya issue dengan durasi penyelesaian yang sangat lama | Monte Carlo Simulation | `05` |
 
 ## 👥 Tim (Kelompok 11)
 
@@ -31,34 +28,30 @@ Pandas adalah library manipulasi data paling populer di ekosistem Python. Dengan
 
 ## 📁 Struktur Repository
 
-```text
 Project-Statistika-Kelompok-11/
+├── README.md
+├── AI_USAGE_LOG.md
 ├── data/
-<<<<<<< HEAD
-│   ├── raw/           # Data mentah (.csv) dari GitHub API Pandas
-│   └── clean/         # Data siap olah (dataset_final.csv)
-├── notebooks/
-│   ├── 01_eda.ipynb   # Visualisasi durasi & status issue Pandas
-│   ├── 02_estimation.ipynb   # Perhitungan MLE (Lambda & Bernoulli)
-│   ├── 03_bayes.ipynb # Update Bayesian (Beta Distribution)
-│   ├── 04_test.ipynb  # Uji Hipotesis laju Bug (Z-Test)
-│   └── 05_sim.ipynb   # Simulasi Monte Carlo durasi > 60 hari
-├── src/               # Script modular (.py)
-├── README.md          # Dokumentasi Proyek
-└── requirements.txt   # Library: pandas, scipy, matplotlib, seaborn
-=======
-│   ├── raw/           # Data mentah hasil scraping (Issues & PRs)
-│   └── clean/         # Dataset final setelah cleaning & feature engineering
-├── notebooks/
-│   ├── 01_eda.ipynb   # Preprocessing & Visualisasi Dasar (Member A)
-│   ├── 02_est.ipynb   # Estimasi Parameter MLE (Member B)
-│   ├── 03_bayes.ipynb # Analisis Bayesian & CI (Member C)
-│   ├── 04_test.ipynb  # Uji Hipotesis (Member D)
-│   └── 05_sim.ipynb   # Simulasi Monte Carlo (Member E)
+│   ├── raw/                         # Data mentah hasil crawling GitHub API
+│   └── clean/
+│       └── dataset_final.csv        # Dataset hasil cleaning
 ├── src/
-│   └── fetch_pandas.py # Script automation penarik data
-└── README.md
->>>>>>> 7002209 (Fixing code)
+│   ├── estimator.py                 # Analisis estimasi parameter (Member B)
+│   ├── inference.py                 # Bayesian & confidence interval (Member C)
+│   ├── hypothesis.py                # Pengujian hipotesis (Member D)
+│   └── simulation.py                # Monte Carlo simulation (Member E)
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   ├── 02_estimation.ipynb
+│   ├── 03_confidence_interval.ipynb
+│   ├── 04_hypothesis_testing.ipynb
+│   └── 05_simulation.ipynb
+├── report/
+│   └── statistical_health_report.pdf
+├── presentation/
+│   └── video_link.md
+└── requirements.txt
+
 ```
 ## 🚀 Cara Menjalankan
 
@@ -66,11 +59,7 @@ Project-Statistika-Kelompok-11/
 # 1. Clone repositori ini.
 
 # 2. Install library
-<<<<<<< HEAD
-pip install -r requirements.txt.
-=======
-pip install pandas numpy scipy matplotlib seaborn requests
->>>>>>> 7002209 (Fixing code)
+pip install -r requirements.txt
 
 # 3. Jalankan notebook secara berurutan dari 01 sampai 05.
 ```
@@ -80,32 +69,51 @@ Masih dalam pengerjaan
 
 ## 🔗 Sumber Data & Metodologi
 
-* **Repositori Target:** [pandas-dev/pandas](https://github.com/pandas-dev/pandas)
-* **Endpoint API:** GitHub REST API v3 (`/repos/{owner}/{repo}/issues`)
-* **Periode Data:** Data diambil hingga tanggal **28 Mei 2026**.
-<<<<<<< HEAD
-* **Volume Data:** ~1.000 record (terdiri dari Issues dan Pull Requests).
-* **Kriteria Pembersihan (Cleaning):** * Hanya menyertakan data dengan status `closed` untuk perhitungan durasi yang akurat.
-    * Penghapusan pencilan (outliers) menggunakan metode **Interquartile Range (IQR)** pada kolom `duration_days`.
-    * Konversi zona waktu ke UTC untuk standarisasi pengerjaan global.
-=======
+* **Repositori Target:** pandas-dev/pandas
+* **Sumber Data:** GitHub REST API v3
+* **Periode Data:** Data diambil hingga Mei 2026.
 
-Data ditarik secara *real-time* melalui **GitHub REST API v3** dengan spesifikasi sebagai berikut:
+### Pengumpulan Data
 
-* **Closed Issues (n = 1.000):** Data murni kategori *issue* (non-PR) untuk analisis durasi pengerjaan.
-* **Merged Pull Requests (n = 500):** Data kontribusi kode yang sukses terintegrasi untuk analisis probabilitas merge.
-* **Metode Penarikan:** Menggunakan sistem *Time-based Cursor Pagination* (parameter `until`) untuk menghindari limitasi API pada dataset besar (Error 422).
-* **Lokasi Data:**
-    * Mentah: `data/raw/pandas_issues_raw.csv` & `data/raw/pandas_prs_raw.csv`
-    * Siap Olah: `data/clean/dataset_final.csv`
->>>>>>> 7002209 (Fixing code)
+Data dikumpulkan secara otomatis menggunakan GitHub REST API v3 dengan pendekatan time-based pagination.
+
+Dataset terdiri dari:
+
+* Closed Issues: 1.311 data
+* Merged Pull Requests: 1.112 data
+
+Total observasi setelah proses penggabungan dan pembersihan data:
+
+* 2.423 record
+
+### Data Cleaning
+
+Tahapan pembersihan data meliputi:
+
+1. Memisahkan data Issue dan Pull Request.
+2. Memilih hanya Issue berstatus closed dan Pull Request yang telah merged.
+3. Mengonversi timestamp ke format datetime.
+4. Menghitung durasi penyelesaian (`duration_days`) dari selisih `closed_at` dan `created_at`.
+5. Membuat variabel indikator bug (`is_bug`) berdasarkan label issue.
+6. Menghapus data duplikat berdasarkan kombinasi `number` dan `type`.
+
+Outlier tidak dihapus karena observasi dengan durasi ekstrem merupakan bagian penting dari analisis probabilitas issue berdurasi panjang pada RQ3.
+
+### Lokasi Dataset
+
+* Data mentah:
+
+  * `data/raw/pandas_issues_raw.csv`
+  * `data/raw/pandas_prs_raw.csv`
+
+* Data bersih:
+
+  * `data/clean/dataset_final.csv`
+
 
 ---
 
 ## 📜 Lisensi & Penggunaan AI
 * Proyek ini dibuat untuk tujuan edukasi di **Universitas Negeri Jakarta**.
-<<<<<<< HEAD
 * Penggunaan AI (Gemini/ChatGPT) didokumentasikan secara transparan dalam file `AI_USAGE_LOG.md` sesuai dengan etika akademik STI 2025.
-=======
-* Penggunaan AI (Gemini/ChatGPT) didokumentasikan secara transparan dalam file `AI_USAGE_LOG.md` sesuai dengan etika akademik STI 2025.
->>>>>>> 7002209 (Fixing code)
+
