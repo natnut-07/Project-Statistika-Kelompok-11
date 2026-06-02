@@ -23,12 +23,15 @@ def ci_bernoulli(k, n, confidence=0.95):
     sigma = np.sqrt(theta_hat * (1 - theta_hat))
     return confidence_interval(theta_hat, sigma, n, confidence)
 
-def ci_poisson(lambda_hat, n, confidence=0.95):
+def ci_poisson(data, confidence=0.95):
     """
     Confidence interval untuk data frekuensi (contohnya jumlah issue baru per hari).
     """
-    theta_hat = lambda_hat
-    sigma = np.sqrt(lambda_hat)
+    lamda_hat = sum(data)/len(data) 
+    n = len(data)
+
+    theta_hat = data.mean()  # Rata-rata sebagai estimator untuk lambda
+    sigma = np.sqrt(theta_hat)
     # Pada distribusi pooisson, varians sama dengan mean
 
     sigma = np.sqrt(theta_hat)
