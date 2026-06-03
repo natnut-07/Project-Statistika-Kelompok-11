@@ -6,7 +6,7 @@
 | ------ | ------------- | --------------- | ------------------- | --------------------------------- |
 | Natasya Nur Afriyani | Data Engineer | Claude, Copilot | ~60% | No                             |
 | Elpa Padila | Estimation Analyst | Gemini | ~55% | No                               |
-| Riyadh Fadilah | Inference Analyst | Claude, Copilot | ~60% | No                               |
+| Riyadh Fadilah | Inference Analyst | Gemini, Notebooklm | ~60% | No                               |
 | Daffa Alfaridzi | Hypothesis Analyst | Gemini | ~60% | No                               |
 | Adam Raysa Rahman | Computation Analyst | Claude, Copilot | ~60% | No                             |
 
@@ -30,8 +30,8 @@
 
 | #   | Task | AI yang Digunakan | Prompt | Bagaimana Output AI Digunakan |
 | --- | ---- | ---- | ------ | ----------------------- | 
-| 1   | Roadmap mengerjakan confidence   interval  | Notebooklm  | Berikan saya panduan untuk memulai mengerjakan confidence interval dan berikan juga cara untuk mengenali jenis distribusi | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
-| 2   | Membuat fungsi confidence interval pada inference.py  | Gemini  | Berikan saya contoh implementasi penggunaan confidence interval sesuai dengan aturan formula Tsun (2020) | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
+| 1   | Roadmap mengerjakan confidence interval  | Notebooklm  | Berikan saya panduan untuk memulai mengerjakan confidence interval dan berikan juga cara untuk mengenali jenis distribusi | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
+| 2   | Membuat fungsi confidence interval pada inference.py  | Gemini  | Berikan saya contoh implementasi penggunaan confidence interval sesuai dengan aturan formula Tsun (2020) | Menyesuaikan kembali dengan data sumber yang diberikan oleh Data Engineer  |
 
 ### Member D - [Daffa Alfaridzi]
 | #   | Task | AI yang Digunakan | Prompt | Bagaimana Output AI Digunakan |
