@@ -30,7 +30,7 @@
 
 | #   | Task | AI yang Digunakan | Prompt | Bagaimana Output AI Digunakan |
 | --- | ---- | ---- | ------ | ----------------------- | 
-| 1   | Roadmap mengerjakan inference interval  | Notebooklm  | Berikan saya panduan untuk memulai mengerjakan confidence interval dan berikan juga cara untuk mengenali jenis distribusi | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
+| 1   | Roadmap mengerjakan confidence   interval  | Notebooklm  | Berikan saya panduan untuk memulai mengerjakan confidence interval dan berikan juga cara untuk mengenali jenis distribusi | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
 | 2   | Membuat fungsi confidence interval pada inference.py  | Gemini  | Berikan saya contoh implementasi penggunaan confidence interval sesuai dengan aturan formula Tsun (2020) | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
 
 _(repeat for all five members)_
