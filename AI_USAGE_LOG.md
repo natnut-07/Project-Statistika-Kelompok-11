@@ -7,7 +7,7 @@
 | Natasya Nur Afriyani | Data Engineer | Claude, Copilot | ~60% | No                             |
 | Elpa Padila | Estimation Analyst | Gemini | ~55% | No                               |
 | Riyadh Fadilah | Inference Analyst | Claude, Copilot | ~60% | No                               |
-| Daffa Alfaridzi | Hypothesis Analyst | Claude, Copilot | ~60% | No                               |
+| Daffa Alfaridzi | Hypothesis Analyst | Gemini | ~60% | No                               |
 | Adam Raysa Rahman | Computation Analyst | Claude, Copilot | ~60% | No                             |
 
 ## Detail Penggunaan Peranggota
@@ -32,6 +32,13 @@
 | --- | ---- | ---- | ------ | ----------------------- | 
 | 1   | Roadmap mengerjakan inference interval  | Notebooklm  | Berikan saya panduan untuk memulai mengerjakan confidence interval dan berikan juga cara untuk mengenali jenis distribusi | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
 | 2   | Membuat fungsi confidence interval pada inference.py  | Gemini  | Berikan saya contoh implementasi penggunaan confidence interval sesuai dengan aturan formula Tsun (2020) | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
+
+### Member D - [Daffa Alfaridzi]
+| #   | Task | AI yang Digunakan | Prompt | Bagaimana Output AI Digunakan |
+| 1   | Implementasi Z-test di hypothesis.py | Gemini | Buatkan fungsi z_test_one_sample dengan input x_bar, mu0, sigma, n. Berikan output dictionary berisi z_stat, p_value, dan decision | Menggunakan logika fungsi untuk kalkulasi Z-stat dan P-value serta adaptasi return menjadi dictionary sesuai struktur proyek |
+| 2   | Debugging ModuleNotFoundError | Gemini | Mengapa muncul ModuleNotFoundError untuk pandas/scipy di VS Code padahal sudah diinstal? Bagaimana cara fix kernel? | Mengikuti langkah instalasi library via terminal proyek dan pemilihan kernel Global Python untuk menstabilkan environment |
+
+
 
 _(repeat for all five members)_
 
