@@ -13,7 +13,7 @@ Pandas adalah library manipulasi data paling populer di ekosistem Python. Dengan
 | # | Pertanyaan | Tujuan | Teknik | Notebook |
 |---|-----------|-------|--------|---------|
 | **RQ1** | Berapa estimasi probabilitas sebuah issue bug (is_bug = 1) dapat diselesaikan dalam waktu ≤ 7 hari, dan seberapa tinggi tingkat ketidakpastian estimasi tersebut? | Mengukur peluang penyelesaian cepat untuk issue bug berdasarkan data historis Pandas | MLE Bernoulli, Beta Distribution, Bayesian Estimation | `02` + `03` |
-| **RQ2** | Berapa rata-rata jumlah issue bug yang diselesaikan setiap minggu pada repositori Pandas, dan apakah rata-rata tersebut berbeda secara signifikan dari nilai yang diasumsikan? | Menganalisis laju penyelesaian bug dan menguji signifikansi statistiknya | MLE Poisson, Confidence Interval, Z-Test | `02` + `04` |
+| **RQ2** | Berapa rata-rata jumlah issue bug yang diselesaikan setiap minggu pada repositori Pandas, dan apakah rata-rata tersebut berbeda secara signifikan dari nilai yang diasumsikan? | Menganalisis laju penyelesaian bug dan menguji signifikansi statistiknya | MLE Poisson, Confidence Interval, Z-Test | `02` + `03` + `04` |
 | **RQ3** | Berapa peluang sebuah issue membutuhkan waktu penyelesaian lebih dari 60 hari, dan bagaimana distribusi peluang tersebut jika disimulasikan secara komputasi? | Memprediksi kemungkinan terjadinya issue dengan durasi penyelesaian yang sangat lama | Monte Carlo Simulation | `05` |
 
 ## 👥 Tim (Kelompok 11)
