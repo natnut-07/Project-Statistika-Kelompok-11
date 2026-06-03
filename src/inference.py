@@ -3,7 +3,7 @@ import numpy as np
 
 def confidence_interval(theta_hat, sigma, n, confidence=0.95):
     """
-    digunakan untuk menghitung rentang confidence interval dasar.
+    Digunakan untuk menghitung rentang confidence interval dasar.
 
     Formula: theta_hat ± z * sigma / sqrt(n) (Tsun, 2020, hal. 300)
     """
@@ -18,28 +18,29 @@ def confidence_interval(theta_hat, sigma, n, confidence=0.95):
 def ci_bernoulli(k, n, confidence=0.95):
     """
     Confidence interval untuk variabel sukses/tidak (contohnya status PR di-merge/closed).
+    Formula: theta_hat ± z * sigma / sqrt(n) (Tsun, 2020, hal. 300) 
     """
     theta_hat = k / n
     sigma = np.sqrt(theta_hat * (1 - theta_hat))
+    
     return confidence_interval(theta_hat, sigma, n, confidence)
 
 def ci_poisson(data, confidence=0.95):
     """
     Confidence interval untuk data frekuensi (contohnya jumlah issue baru per hari).
+    Formula: lambda_hat = sum(data) / len(data)
     """
-    lamda_hat = sum(data)/len(data) 
+    lambda_hat = sum(data)/len(data) 
     n = len(data)
 
-    theta_hat = data.mean()  # Rata-rata sebagai estimator untuk lambda
-    sigma = np.sqrt(theta_hat)
     # Pada distribusi pooisson, varians sama dengan mean
-
-    sigma = np.sqrt(theta_hat)
-    return confidence_interval(theta_hat, sigma, n, confidence)
+    sigma = np.sqrt(lambda_hat)
+    return confidence_interval(lambda_hat, sigma, n, confidence)
 
 def credible_interval(alpha, beta, confidence=0.95):
     """
     Credible interval berdasarkan distribusi beta posterior.
+    Parameter Posterior Beta (alpha = k+1, beta = m+1) dan distribusinya (Tsun, 2020, hal. 269)
     """
     tail = (1 - confidence) / 2
     lower = stats.beta.ppf(tail, alpha, beta)
