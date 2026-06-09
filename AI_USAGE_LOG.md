@@ -4,7 +4,7 @@
 
 | Member | Role | Tools | ~% code AI-assisted | Interpretation cells AI-assisted? |
 | ------ | ------------- | --------------- | ------------------- | --------------------------------- |
-| Natasya Nur Afriyani | Data Engineer | Claude, Copilot | ~60% | No                             |
+| Natasya Nur Afriyani | Data Engineer | Gemini | ~60% | No                             |
 | Elpa Padila | Estimation Analyst | Gemini | ~55% | No                               |
 | Riyadh Fadilah | Inference Analyst | Gemini, Notebooklm | ~60% | No                               |
 | Daffa Alfaridzi | Hypothesis Analyst | Gemini | ~60% | No                               |
@@ -12,11 +12,13 @@
 
 ## Detail Penggunaan Peranggota
 
-### Member A — [Name]
+### Member A — [Natasya Nur Afriyani]
 
 | #   | Task | AI yang Digunakan | Prompt | Bagaimana Output AI Digunakan |
 | --- | ---- | ---- | ------ | ----------------------- | 
-| 1   | ...  | ...  | ...    | ...                     |
+| 1   | Pengambilan data mentah (Data Acquisition) dari API GitHub Pandas-Dev | Gemini | "Mengambil data pulls... Page 1 sukses... Terjadi kesalahan: HTTPSConnectionPool..." dan "kenapa hasil mergednya hanya 77 saja" | Digunakan untuk menyusun script ⁠fetch_pandas_data.py⁠ yang tangguh dengan mekanisme retry, timeout, dan pengurutan terbaru (desc) guna menembus limit API hingga mendapatkan 1116 Issues dan 1334 Merged PRs |
+| 2   | Pemecahan masalah error tipe data (AttributeError) pada Pandas saat pelabelan data | Gemini | (Menyalin log error) “AttributeError: Can only use .str accessor with string values, not floating...” | Digunakan untuk memperbaiki logika feature engineering pada kolom ⁠labels⁠ dengan menambahkan fungsi ⁠.astype(str)⁠ sebelum proses pemindaian kata kunci komparatif |
+| 3   | Penanganan kegagalan Git Push akibat pemblokiran keamanan (Push Protection) | Gemini | (Menyalin log error) “remote: error: GH013: Repository rule violations found... Push cannot contain secrets” | Digunakan sebagai panduan langkah demi langkah untuk membersihkan token rahasia dari kode, melakukan ⁠git commit --amend⁠ untuk menghapus riwayat commit lama, mendesain mekanisme pengamanan baru, dan melakukan push ulang dengan sukses ke repositori utama kelompok |
 
 ### Member B — [Elpa Padila]
 
@@ -33,8 +35,10 @@
 | 1   | Roadmap mengerjakan confidence interval  | Notebooklm  | Berikan saya panduan untuk memulai mengerjakan confidence interval dan berikan juga cara untuk mengenali jenis distribusi | Mengambil hasil logika matematika dengan menggunakan library numpy, dan restruktur hasil fungsi  |
 | 2   | Membuat fungsi confidence interval pada inference.py  | Gemini  | Berikan saya contoh implementasi penggunaan confidence interval sesuai dengan aturan formula Tsun (2020) | Menyesuaikan kembali dengan data sumber yang diberikan oleh Data Engineer  |
 
-### Member D - [Daffa Alfaridzi]
+### Member D - [Daffa Alfaridzi]    
+
 | #   | Task | AI yang Digunakan | Prompt | Bagaimana Output AI Digunakan |
+| --- | ---- | ---- | ------ | ----------------------- | 
 | 1   | Implementasi Z-test di hypothesis.py | Gemini | Buatkan fungsi z_test_one_sample dengan input x_bar, mu0, sigma, n. Berikan output dictionary berisi z_stat, p_value, dan decision | Menggunakan logika fungsi untuk kalkulasi Z-stat dan P-value serta adaptasi return menjadi dictionary sesuai struktur proyek |
 | 2   | Debugging ModuleNotFoundError | Gemini | Mengapa muncul ModuleNotFoundError untuk pandas/scipy di VS Code padahal sudah diinstal? Bagaimana cara fix kernel? | Mengikuti langkah instalasi library via terminal proyek dan pemilihan kernel Global Python untuk menstabilkan environment |
 
