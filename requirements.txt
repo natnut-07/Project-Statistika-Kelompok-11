@@ -1,0 +1,15 @@
+# Data Manipulation & Computation
+numpy
+pandas
+scipy
+
+# Data Visualization
+matplotlib
+seaborn
+
+# API Requests (Data Collection)
+requests
+
+# Jupyter Environment & VS Code Kernel
+jupyter
+ipykernel
