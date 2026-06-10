@@ -54,9 +54,13 @@
 
 ## Group Reflection
 
-Berdasarkan hasil temuan kami, ada beberapa poin yang dapat disampaikan mengenai audit statistik terhadap repository open-source pandas dengan menggunakan Konsep Statistika dan Probabilitas. Data yang diperoleh adalah issue bug pada repository tersebut.
+Sebagai tim audit statistik terhadap repository open-source pandas, kami menggunakan dan mengintegrasikan AI dalam alur perencanaan dan pengerjaan kami selama tiga minggu terakhir. 
 
-Seorang Data Engineer yang bertugas sebagai mencari data dan membersihkan data yang telah diperoleh, kemudian dilanjutkan oleh Estimation Analyst untuk melihat nilai-nilai yang dapat diteruskan kepada peran yang lain, salah satunya adalah estimasi parameter. Karena satu angka pasti tidak dapat dipastikan, kemudian diciptakan interval oleh Inference Analyst. Nilai-nilai yang telah diperoleh oleh Estimation Analyst juga dapat digunakan oleh Hypothesis Analsyst untuk membuat hipotesis perilaku bug mingguan. Hasil yang diperoleh Hypothesis Analyst kemudian dibuat dasar pemodelan komputasi oleh Computation.
+Data Engineer kami sangat terbantu dengan adanya AI dalam melakukan perbaikan logika, menyusun script, dan panduan langkah demi langkah, sehingga AI menangani hal tersebut dengan baik. Selain itu pada Estimaton Analyst kami mengandalkan AI untuk mengambil logika dasar matematika fungsi MLE dan likelihood sebagai struktur dasar. 
 
-Setiap peran yang dibagikan kepada kelompok kami, telah sukses menyelesaikan jobdesk yang telah diberikan oleh dosen. Kami menyadari bahwa projek kali ini adalah simulasi yang menggambarkan bagaimana sebuah tim IT bekerja sama dalam sebuah perusahaan. Setiap peran memiliki tugasnya masing-masing, dan memiliki ketergantungan antar peran. Selain dari itu, projek ini sangat penting bagi kami untuk membuat portofolio sebagai bukti kerja nyata. 
+Inference dan Hypothesis Analyst kami mengandalkan AI untuk debugging dan contoh implementasi yang baik dalam projek statistik ini. Sementara itu, Computation Analyst kami membuat algoritma MCMC Knapsack pada simulation.py, dan juga membuat fungsi multi-hashing untuk Bloom Filter.
+
+Keputusan kami adalah menggunakan AI sebagai optimasi pekerjaan, namun tetap divalidasi manual agar hasil generate AI tersebut tidak bias dari RQ yang telah disediakan. Kami merasa jika kami mengandalkan AI sepenuhnya dalam pengambilan keputusan strategis, rasanya tidak etis dalam kelompok kami. Oleh karena itu, kami menempatkan AI sebagai alat bantu teknis, bukan pengambil keputusan utama dalam proses pengerjaan projek ini.
+
+
 
