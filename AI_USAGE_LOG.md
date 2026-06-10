@@ -50,7 +50,7 @@
 | 2   | Membuat fungsi multi-hashing untuk Bloom Filter | Gemini | Berikan saya cara menggunakan library hashlib md5 untuk membuat 3 nilai hash yang berbeda dari satu input | Mengambil hasil manipulasi *string* (*salt*) dan menerapkan operasi modulo agar sesuai dengan ukuran array |
 | 3   | Mengatasi error import folder src pada notebook | Gemini | Berikan saya solusi untuk mengatasi ImportError saat memanggil file python dari folder yang berbeda di Jupyter Notebook | Mengambil fungsi library sys dan os untuk mendaftarkan *path* folder secara otomatis |
 | 4   | Optimasi memori pada simulasi Monte Carlo | Gemini | Berikan saya cara mengoptimalkan perulangan data yang besar di Python agar tidak memakan banyak memori | Mengubah penggunaan *list* standar menjadi *generator expression* untuk efisiensi eksekusi |
-
+    
 
 ## Group Reflection (150–300 words) // Dummy, not fixed
 

@@ -2,126 +2,85 @@ import numpy as np
 import hashlib
 
 def estimate_probability(event_fn, n_trials=50000):
-    r"""
-    Menghitung estimasi probabilitas menggunakan simulasi Monte Carlo.
-    
-    Referensi:
-        Tsun (2020)
-        
-    Parameters:
-        event_fn (callable): Fungsi yang mengembalikan True jika event terjadi, False jika tidak.
-        n_trials (int): Jumlah iterasi simulasi.
-        
-    Returns:
-        float: Estimasi probabilitas kejadian.
-    """
-    successes = sum(1 for _ in range(n_trials) if event_fn())
+    # (Kode lama Anda biarkan di sini)
+    successes = sum((1 for _ in range(n_trials) if event_fn()))
     return successes / n_trials
 
-
 class BloomFilter:
-    r"""
-    Implementasi struktur data probabilistik Bloom Filter untuk efisiensi memori.
-    
-    Referensi Formula FPR:
-        (1 - (1 - 1/m)**n)**k (Tsun, 2020, Halaman 329)
-    """
     def __init__(self, k, m):
-        self.k = k
-        self.m = m
-        self.bit_array = np.zeros(m, dtype=bool)
-
-    def _hashes(self, item):
-        """Menghasilkan k nilai hash untuk sebuah item."""
-        hashes = []
-        for i in range(self.k):
-            # Menggunakan salt yang berbeda untuk setiap fungsi hash
-            hash_object = hashlib.md5((str(item) + str(i)).encode())
-            hashes.append(int(hash_object.hexdigest(), 16) % self.m)
-        return hashes
+        self.k = k  # Jumlah fungsi hash
+        self.m = m  # Ukuran bit array
+        self.bit_array = np.zeros(self.m, dtype=bool)
 
     def add(self, item):
-        """Menambahkan item ke dalam Bloom Filter."""
-        for h in self._hashes(item):
-            self.bit_array[h] = True
+        for i in range(self.k):
+            # Menggunakan hashlib untuk fungsi hash deterministik
+            digest = hashlib.md5(f"{item}_{i}".encode()).hexdigest()
+            idx = int(digest, 16) % self.m
+            self.bit_array[idx] = True
 
     def contains(self, item):
-        """Memeriksa apakah item mungkin ada di dalam himpunan."""
-        for h in self._hashes(item):
-            if not self.bit_array[h]:
+        for i in range(self.k):
+            digest = hashlib.md5(f"{item}_{i}".encode()).hexdigest()
+            idx = int(digest, 16) % self.m
+            if not self.bit_array[idx]:
                 return False
         return True
 
     def theoretical_fpr(self, n):
-        """Menghitung Theoretical False Positive Rate."""
-        return (1 - (1 - 1 / self.m)**n)**self.k
-
+        """
+        Rumus FPR sesuai Tsun (2020) halaman 329.
+        n = jumlah elemen yang dimasukkan.
+        """
+        return (1 - (1 - 1/self.m)**n)**self.k
 
 def mcmc_knapsack(items, capacity, n_iter=100000):
-    r"""
-    Menyelesaikan problem Knapsack menggunakan pendekatan Markov Chain Monte Carlo (MCMC).
-    Digunakan untuk optimasi prioritas pengerjaan bug berdasarkan waktu (weight) dan severity (value).
-    
-    Referensi:
-        Tsun (2020)
-        
-    Parameters:
-        items (list of dict): Daftar dictionary dengan key 'weight' dan 'value'.
-        capacity (float/int): Kapasitas maksimal (misal: total jam kerja).
-        n_iter (int): Jumlah iterasi MCMC.
-        
-    Returns:
-        dict: Solusi terbaik yang ditemukan berisi 'max_value', 'total_weight', dan 'best_state'.
+    """
+    Optimasi pemilihan issue menggunakan Markov Chain Monte Carlo (Metropolis-Hastings).
+    items: list of dicts [{'weight': w, 'value': v, 'id': id}, ...]
     """
     n_items = len(items)
+    weights = np.array([item['weight'] for item in items])
+    values = np.array([item['value'] for item in items])
     
-    # State awal: array boolean acak (diambil/tidak)
-    current_state = np.random.choice([False, True], size=n_items)
+    current_state = np.zeros(n_items, dtype=int)
+    current_value, current_weight = 0, 0
     
-    def evaluate(state):
-        w = sum(items[i]['weight'] for i in range(n_items) if state[i])
-        v = sum(items[i]['value'] for i in range(n_items) if state[i])
-        return w, v
-
-    # Pastikan state awal valid
-    current_w, current_v = evaluate(current_state)
-    while current_w > capacity:
-        current_state = np.random.choice([False, True], size=n_items)
-        current_w, current_v = evaluate(current_state)
-
     best_state = current_state.copy()
-    best_v = current_v
-    best_w = current_w
-
+    best_value = 0
+    
+    beta = 1.5 # Parameter pengarah eksploitasi nilai tinggi
+    
     for _ in range(n_iter):
-        # Proposal: balikkan (flip) satu state secara acak
-        proposal_state = current_state.copy()
-        flip_idx = np.random.randint(n_items)
-        proposal_state[flip_idx] = not proposal_state[flip_idx]
+        idx = np.random.randint(n_items)
+        new_state = current_state.copy()
+        new_state[idx] = 1 - new_state[idx] # Flip bit
         
-        prop_w, prop_v = evaluate(proposal_state)
+        new_weight = np.sum(new_state * weights)
+        new_value = np.sum(new_state * values)
         
-        # Aturan transisi (Hill Climbing / Simplified Metropolis)
-        if prop_w <= capacity:
-            if prop_v >= current_v:
-                current_state = proposal_state
-                current_v = prop_v
-                current_w = prop_w
-                # Update best state
-                if current_v > best_v:
-                    best_v = current_v
-                    best_w = current_w
-                    best_state = current_state.copy()
-            else:
-                # Stochastic acceptance untuk menghindari local optima
-                acceptance_prob = np.exp((prop_v - current_v) / 1.0) # Suhu konstan
-                if np.random.rand() < acceptance_prob:
-                    current_state = proposal_state
-                    current_v = prop_v
-                    current_w = prop_w
-
+        # Tolak absolut jika melebihi kapasitas
+        if new_weight > capacity:
+            continue
+            
+        # Metropolis acceptance rule
+        delta_v = new_value - current_value
+        if delta_v >= 0:
+            accept_prob = 1.0
+        else:
+            accept_prob = np.exp(beta * delta_v)
+            
+        if np.random.rand() < accept_prob:
+            current_state = new_state
+            current_weight = new_weight
+            current_value = new_value
+            
+            if current_value > best_value:
+                best_value = current_value
+                best_state = current_state.copy()
+                
     return {
-        'max_value': best_v,
-        'total_weight': best_w,
-        'best_state': best_state.tolist()
+        'best_value': best_value,
+        'best_weight': np.sum(best_state * weights),
+        'best_items_idx': np.where(best_state == 1)[0].tolist()
     }
