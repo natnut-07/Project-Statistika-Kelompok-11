@@ -58,7 +58,7 @@ Sebagai tim audit statistik terhadap repository open-source pandas, kami menggun
 
 Data Engineer kami sangat terbantu dengan adanya AI dalam melakukan perbaikan logika, menyusun script, dan panduan langkah demi langkah, sehingga AI menangani hal tersebut dengan baik. Selain itu pada Estimaton Analyst kami mengandalkan AI untuk mengambil logika dasar matematika fungsi MLE dan likelihood sebagai struktur dasar. 
 
-Inference dan Hypothesis Analyst kami mengandalkan AI untuk debugging dan contoh implementasi yang baik dalam projek statistik ini. Sementara itu, Computation Analyst kami membuat algoritma MCMC Knapsack pada simulation.py, dan juga membuat fungsi multi-hashing untuk Bloom Filter.
+Inference dan Hypothesis Analyst kami mengandalkan AI untuk debugging dan contoh implementasi yang baik dalam projek statistik ini. Sementara itu, Computation Analyst kami membuat algoritma MCMC Knapsack pada simulation.py, dan juga membuat fungsi multi-hashing untuk Bloom Filter. 
 
 Keputusan kami adalah menggunakan AI sebagai optimasi pekerjaan, namun tetap divalidasi manual agar hasil generate AI tersebut tidak bias dari RQ yang telah disediakan. Kami merasa jika kami mengandalkan AI sepenuhnya dalam pengambilan keputusan strategis, rasanya tidak etis dalam kelompok kami. Oleh karena itu, kami menempatkan AI sebagai alat bantu teknis, bukan pengambil keputusan utama dalam proses pengerjaan projek ini.
 
