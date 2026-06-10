@@ -52,10 +52,11 @@
 | 4   | Optimasi memori pada simulasi Monte Carlo | Gemini | Berikan saya cara mengoptimalkan perulangan data yang besar di Python agar tidak memakan banyak memori | Mengubah penggunaan *list* standar menjadi *generator expression* untuk efisiensi eksekusi |
     
 
-## Group Reflection (150–300 words) // Dummy, not fixed
+## Group Reflection
 
+Berdasarkan hasil temuan kami, ada beberapa poin yang dapat disampaikan mengenai audit statistik terhadap repository open-source pandas dengan menggunakan Konsep Statistika dan Probabilitas. Data yang diperoleh adalah issue bug pada repository tersebut.
 
+Seorang Data Engineer yang bertugas sebagai mencari data dan membersihkan data yang telah diperoleh, kemudian dilanjutkan oleh Estimation Analyst untuk melihat nilai-nilai yang dapat diteruskan kepada peran yang lain, salah satunya adalah estimasi parameter. Karena satu angka pasti tidak dapat dipastikan, kemudian diciptakan interval oleh Inference Analyst. Nilai-nilai yang telah diperoleh oleh Estimation Analyst juga dapat digunakan oleh Hypothesis Analsyst untuk membuat hipotesis perilaku bug mingguan. Hasil yang diperoleh Hypothesis Analyst kemudian dibuat dasar pemodelan komputasi oleh Computation.
 
-_(repeat for all five members)_
+Setiap peran yang dibagikan kepada kelompok kami, telah sukses menyelesaikan jobdesk yang telah diberikan oleh dosen. Kami menyadari bahwa projek kali ini adalah simulasi yang menggambarkan bagaimana sebuah tim IT bekerja sama dalam sebuah perusahaan. Setiap peran memiliki tugasnya masing-masing, dan memiliki ketergantungan antar peran. Selain dari itu, projek ini sangat penting bagi kami untuk membuat portofolio sebagai bukti kerja nyata. 
 
-## Group Reflection (150–300 words)

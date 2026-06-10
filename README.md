@@ -66,7 +66,14 @@ pip install -r requirements.txt
 ```
 ## 📊 Temuan Utama (Statistical Insights)
 
-Masih dalam pengerjaan
+Data kami menunjukkan bahwa lebih dari separuh bug yang dilaporkan, tepatnya sekitar 53% telah berhasil diselesaikan dalam waktu 7 hari atau kurang. Hal tersebut adalah hasil performa yang luar biasa untuk sebuah proyek open-source sukarela.
+
+Kedua, beban kerja mereka sangat stabil dan bisa diprediksi. Rata-rata ada sekitar 7 hingga 8 laporan bug baru setiap minggunya. Melalui uji statistik, kami membuktikan bahwa angka ini sangat konsisten dari waktu ke waktu tanpa ada lonjakan atau penurunan yang drastis.
+
+Ketiga, ketakutan akan terjadinya 'banjir bug' hampir tidak terbukti. Dari 50 ribu skenario simulasi yang kami jalankan, risiko repositori ini mengalami bottleneck, atau menerima lebih dari 15 bug dalam seminggu, itu kurang dari setengah persen (0,46%). Artinya, maintainer bisa bekerja dengan tenang tanpa perlu menyiapkan tim darurat atau jadwal lembur khusus.
+
+Dan yang terakhir, kami menemukan dua peluang besar untuk menghemat waktu dan tenaga maintainer. Daripada mengecek issue duplikat satu per satu secara manual, kami menyarankan integrasi sistem Bloom Filter yang bisa menyaring laporan ganda secara otomatis dan sangat hemat memori. Selain itu, kami juga merekomendasikan penggunaan algoritma optimasi prioritas kami, agar tim selalu tahu bug mana yang paling mendesak untuk dikerjakan setiap minggunya dengan waktu yang terbatas.
+
 
 ## 🔗 Sumber Data & Metodologi
 
